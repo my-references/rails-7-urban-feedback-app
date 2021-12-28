@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     namespace :madmin do
     end
   end
-
+  resources :inboxes, only: %i[index new]
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

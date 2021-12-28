@@ -1,0 +1,34 @@
+<%= form_with(model: inbox, local: true) do |form| %>
+  <% if inbox.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inbox.errors.count, "error") %> prohibited this inbox from being saved:</h2>
+
+      <ul>
+      <% inbox.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if inbox.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', inbox, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-outline-dark' %>
+
+    <% if inbox.persisted? %>
+      <%= link_to "Cancel", inbox, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", inboxes_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

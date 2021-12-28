@@ -1,0 +1,41 @@
+
+
+
+<div class="row mt-4 mb-4">
+  <div class="col-sm-6">
+    <h1>Inboxes</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_inbox_path, class: 'btn btn-outline-dark' do %>
+    Add New Inbox
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Name</th>
+    
+
+            
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @inboxes.each do |inbox| %>
+        <%= content_tag :tr, id: dom_id(inbox), class: dom_class(inbox) do %>
+          
+            <td><%= link_to inbox.name, inbox %></td>
+          
+
+          
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
