@@ -5,10 +5,15 @@ class User < ApplicationRecord
          :rememberable, :validatable, :omniauthable
   validates :email, presence: true
   validates :email, uniqueness: true
+  
+  has_many :inboxes, dependent: :destroy
+  # has_many :messages, through: :inboxes
+  # has_many :messages, dependent: :destroy
+
+  # acts_as_voter
 
   has_one_attached :avatar
   has_person_name
-  has_and_belongs_to_many :inboxes
   has_many :notifications, as: :recipient
   has_many :services
 end
