@@ -1,4 +1,4 @@
-# rails 7 sass jumpstart
+# urban-feedback-app
 
 Epic Ruby On Rails 7 SaaS Jumpstart app with PostgreSQL, Redis Caching, Bootstrap 5, Font Awesome 5, Devise, Notifications, Announcements, Rollup, Importmap, CSS Bundling, JS Bundling, Madmin, Hotwire, Stimulus JS and Action Cable/Cable Ready & Request JS. 
 
@@ -8,46 +8,48 @@ Epic Ruby On Rails 7 SaaS Jumpstart app with PostgreSQL, Redis Caching, Bootstra
 
 * https://docs.stimulusreflex.com/
 
-Combine with Hotwire and Strada
+# Combine with Hotwire and Strada #
 
 * https://hotwired.dev/
 
 Style kept minimal so Bootstrap 5 can be swapped out for other CSS or UI if required
 
-* Ruby version
+* Ruby/Rails/Node/Postgres
 
-Ruby 3.0.0
+- [Ruby](https://www.ruby-lang.org/en/) 3.0.0
+- [Rails](https://rubyonrails.org/) 7.0.0 up
+- [NodeJS] (https://nodejs.org/es/blog/release/v16.0.0/) 16.0.0
+- [PostgreSQL](https://www.postgresql.org/docs/14/index.html) 14.00
 
-Rails 7.0.0 up
+## SET UP, first six steps MUST be done ##
 
-* Setup, first six steps MUST be done
+After first set email & db credentials in .env file (for PostgreSQL, cp .env.example to .env and fill in with your env details)
 
 1. $ bundle install/update (if change any gems)
 2. $ yarn  (engine node v 16.0.0)
 3. $ bin/rails css:install:bootstrap  (dont overwrite application.bootstrap)
 
-4. Set db credentials in .env file (for PostgreSQL, cp .env.example to .env)
-5. $ bin/rails db:migrate:reset
-6. $ bin/rails db:schema:load
+4. $ bin/rails db:migrate:reset
 
-7. Is set up to send basic user signup mail with Gmail, alter smtp or other mail credentials (.env, application_mailer, devise.rb & development.rb), then test signup confirmation emails by signing up & confirming user email
+5. Is set up to send basic user signup mail with Gmail, alter smtp or other mail credentials (.env, application_mailer, devise.rb & development.rb), then test signup confirmation emails by signing up & confirming user email
 As above be sure to copy .env.example > .env and enter details, or adapt to suit yours.
 
-## Optional
-8. $ rails stimulus_reflex:install (extra config needed see link above)
-
-9. $ rails dev:cache (check, should be cached, if not run again)
+6. $ rails dev:cache (check/toggle, must be cached, if not run again)
 
 ## Optional
-10. $ rails g madmin:install  (if not, have to alter nav)
-11. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
 
-12. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
+7. $ rails stimulus_reflex:install (extra config needed see link above)
+
+# Optional
+8. $ rails g madmin:install  (if not, have to alter nav)
+9. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
+
+10. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
     (see https://realfavicongenerator.net/)  for more info.
     
-13. $ rails g rspec:install  (for testing)
+11. $ rails g rspec:install  (for testing)
 
-14. Run Importmap
+12. Run Importmap
 
 # Examples 
 
@@ -61,9 +63,14 @@ $ rails s
 
 (For other cmds see  related docs/links)
 
-# example
+# Example
 
 $ rails action_text:install (already done here)
+
+## Sass correction (fix sass warning in step 3)
+
+$ npm install -g sass-migrator
+$ sass-migrator division **/*.scss
 
 ## Author
 
