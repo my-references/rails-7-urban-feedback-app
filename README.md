@@ -27,7 +27,7 @@ Rails 7.0.0 up
 3. $ bin/rails css:install:bootstrap  (dont overwrite application.bootstrap)
 
 4. Set db credentials in .env file (for PostgreSQL, cp .env.example to .env)
-5. $ bin/rails db:reset
+5. $ bin/rails db:migrate:reset
 6. $ bin/rails db:schema:load
 
 7. Is set up to send basic user signup mail with Gmail, alter smtp or other mail credentials (.env, application_mailer, devise.rb & development.rb), then test signup confirmation emails by signing up & confirming user email
