@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :rememberable, :validatable, :omniauthable
   validates :email, presence: true
   validates :email, uniqueness: true
+  validates :username, presence: true
   
   has_many :inboxes, dependent: :destroy
   # has_many :messages, through: :inboxes
